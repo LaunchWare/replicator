@@ -1,0 +1,20 @@
+@import "../../modal/css/modal.css";
+
+.confirmation-modal__text {
+  display: inline-block;
+  padding-top: 1.5rem;
+}
+
+.confirmation-modal__button {
+  border: 0.125rem solid;
+  text-transform: none;
+  margin: 0rem 1rem;
+  height: 2.5rem;
+  line-height: 0;
+}
+
+.confirmation-modal__contents {
+  border-radius: 0.25rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
