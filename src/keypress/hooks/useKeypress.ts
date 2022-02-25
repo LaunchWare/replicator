@@ -6,11 +6,11 @@ import { useEffect } from "react";
  */
 export const useKeypress = (key: string, action: () => void) => {
   useEffect(() => {
-    const onKeyup = (e) => {
+    const onKeyup = (e: KeyboardEvent) => {
       if (e.key === key) action();
     };
 
-    window.addEventListener("keyup", onKeyup);
+    window.addEventListener("keyup", (e) => onKeyup(e));
 
     return () => window.removeEventListener("keyup", onKeyup);
   }, [key, action]);
