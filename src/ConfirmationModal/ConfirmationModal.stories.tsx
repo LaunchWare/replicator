@@ -23,7 +23,7 @@ export const DefaultConfirmationModal = () => {
 DefaultConfirmationModal.storyName = "Default";
 
 export default {
-  title: "ConfirmatioModal",
+  title: "ConfirmationModal",
   parameters: {
     docs: {
       page: mdx,

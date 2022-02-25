@@ -11,9 +11,11 @@ export const useModal = (
   {
     scrollToTop = true,
     portalParent = document.body,
+    onVisibilityChange = () => {},
   }: {
     scrollToTop?: boolean;
     portalParent?: Element;
+    onVisibilityChange?: (isVisible: boolean) => void;
   } = {}
 ): {
   isVisible: boolean;
@@ -34,6 +36,7 @@ export const useModal = (
     if (scrollToTop) {
       window.scrollTo(0, 0);
     }
+    onVisibilityChange(isVisible);
   };
 
   useKeypress("Escape", () => setVisibility(false));
