@@ -1,5 +1,5 @@
 import React from "react";
-import { useModal } from "./hooks/useModal";
+import { useModal } from "../Modal";
 import mdx from "./Modal.mdx";
 
 import "./css/modal.css";

@@ -39,5 +39,3 @@ export const Modal: Modal = ({
     </>
   );
 };
-
-export { useModal } from "./hooks/useModal";

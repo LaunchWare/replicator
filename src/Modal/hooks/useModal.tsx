@@ -4,7 +4,7 @@ import { ReactFragment, useState } from "react";
 import { ModalProps } from "../Modal.d";
 import { Modal } from "../Modal";
 
-import { useKeypress } from "../../keypress/hooks/useKeypress";
+import { useKeypress } from "../../Keypress/hooks/useKeypress";
 
 export const useModal = (
   modalContent: FC<ModalProps>,

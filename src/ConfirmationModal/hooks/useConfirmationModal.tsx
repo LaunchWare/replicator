@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { ConfirmationModalProps } from "../ConfirmationModal.d";
 import { ConfirmationModal } from "../ConfirmationModal";
-import { useModal } from "../../modal/hooks/useModal";
-import { ModalProps } from "../../modal/Modal.d";
+import { useModal } from "../../Modal";
+import { ModalProps } from "../../Modal/Modal.d";
 
 export const useConfirmationModal = ({
   promptText = "Are you sure?",
