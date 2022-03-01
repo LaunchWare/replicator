@@ -1,6 +1,5 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { ReactElement } from "react";
-import { ReactFragment, useState } from "react";
 import { ModalProps } from "../Modal.d";
 import { Modal } from "../Modal";
 

@@ -1,4 +1,4 @@
-import React, { FC, ReactChildren, ReactFragment } from "react";
+import React, { FC } from "react";
 import { createPortal } from "react-dom";
 import { ModalProps } from "./Modal.d";
 

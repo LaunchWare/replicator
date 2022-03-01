@@ -6,7 +6,7 @@ import typescript from "@rollup/plugin-typescript";
 import { globbySync } from "globby";
 import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
-// import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import uglify from "rollup-plugin-uglify";
 
@@ -28,7 +28,7 @@ const cssConfig = globbySync(["src/**/*.css"]).map((inputFile) => {
       },
     ],
     plugins: [
-      // peerDepsExternal(),
+      peerDepsExternal(),
       resolve(),
       postcss({ extensions: [".css"], extract: true }),
       del({
@@ -57,7 +57,7 @@ const jsConfig = {
     },
   ],
   plugins: [
-    // peerDepsExternal(),
+    peerDepsExternal(),
     typescript(),
     commonjs(),
     resolve(),

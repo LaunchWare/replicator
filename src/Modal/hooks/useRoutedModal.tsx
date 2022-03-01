@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from "react";
 import { useMatch, useNavigate } from "react-router";
-import { useModal } from "..";
+import { useModal } from "./useModal";
 
 export const useRoutedModal = (modalContents: FC, { path }: { path: string }) => {
   const matches = useMatch(path);

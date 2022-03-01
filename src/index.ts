@@ -1,2 +1,2 @@
-export { Modal } from "./Modal/Modal";
-export { useModal } from "./Modal/hooks/useModal";
+export * from "./Modal";
+export * from "./ConfirmationModal";
