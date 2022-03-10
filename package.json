@@ -1,6 +1,6 @@
 {
   "name": "@launchacademy/replicator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React components commonly used by Launch Academy developers",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -19,8 +19,8 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addon-storysource": "^6.4.19",
     "@storybook/builder-webpack5": "^6.4.19",
-    "@storybook/react": "^6.4.19",
     "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
     "@types/jest": "^27.4.0",
     "@types/mdx": "^2.0.1",
