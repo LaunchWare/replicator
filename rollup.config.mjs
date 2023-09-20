@@ -41,19 +41,21 @@ const cssConfig = globbySync(["src/**/*.css"]).map((inputFile) => {
 });
 
 const jsConfig = {
-  input: "src/index.ts",
+  input: "index.ts",
   output: [
     {
       file: "dist/index.js",
       compact: true,
       format: "cjs",
       sourcemap: true,
+      exports: "named",
     },
     {
       file: "dist/index.es.js",
       format: "esm",
       compact: true,
       sourcemap: true,
+      exports: "named",
     },
   ],
   plugins: [

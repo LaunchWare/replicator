@@ -13,9 +13,9 @@
       "dom.iterable",
       "esnext"
     ],
+    "emitDeclarationOnly": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": true,
     "outDir": "dist",
     "resolveJsonModule": true,
     // "rootDir": "src",
@@ -33,6 +33,7 @@
     "node_modules",
   ],
   "include": [
+    "index.ts",
     "src/**/*",
     "test/**/*"
   ]

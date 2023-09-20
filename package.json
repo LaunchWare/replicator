@@ -1,10 +1,18 @@
 {
-  "name": "@launchacademy/replicator",
+  "name": "@launchware/replicator",
   "version": "0.0.2",
   "description": "React components commonly used by Launch Academy developers",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "CHANGELOG.md",
+    "dist",
+    "README.md",
+    "dist/**",
+    "css/**"
+  ],
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@rollup/plugin-babel": "^5.3.1",
