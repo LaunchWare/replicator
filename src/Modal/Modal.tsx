@@ -13,13 +13,17 @@ export function Modal({
   setVisibility,
   children,
   portalParent = document.body,
+  size = "large",
 }: ModalProps) {
   if (isVisible) {
     return createPortal(
       <div className="modal" onClick={() => setVisibility(false)}>
         <div className="modal__overlay" />
         <div className="modal__wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
-          <div className="modal__contents" onClick={(event) => event.stopPropagation()}>
+          <div
+            className={`modal__contents${size === "large" ? " modal__contents_large" : ""}`}
+            onClick={(event) => event.stopPropagation()}
+          >
             <div className="modal__header">
               <button
                 type="button"

@@ -8,6 +8,7 @@ import { ConfirmationModalProps } from "../ConfirmationModal.d";
 export const useConfirmationModal = ({
   promptText = "Are you sure?",
   action,
+  size = "large",
 }: ConfirmationModalProps) => {
   const modalContents: FC<ModalProps> = ({ setVisibility }: ModalProps) => (
     <ConfirmationModal
@@ -19,7 +20,7 @@ export const useConfirmationModal = ({
       setVisibility={setVisibility}
     />
   );
-  const { setVisibility, modal } = useModal(modalContents, { scrollToTop: false });
+  const { setVisibility, modal } = useModal(modalContents, { scrollToTop: false, size });
   const showModal = () => {
     setVisibility(true);
   };

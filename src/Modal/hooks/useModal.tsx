@@ -3,6 +3,7 @@ import { FC, useState, ReactElement } from "react";
 import { useKeypress } from "../../Keypress/hooks/useKeypress";
 import { Modal } from "../Modal";
 import { ModalProps } from "../Modal.d";
+import { ModalSize } from "../ModalSize";
 
 export const useModal = (
   modalContent: FC<ModalProps>,
@@ -10,10 +11,12 @@ export const useModal = (
     scrollToTop = true,
     portalParent = document.body,
     onVisibilityChange = () => {},
+    size = "large",
   }: {
     scrollToTop?: boolean;
     portalParent?: Element;
     onVisibilityChange?: (isVisible: boolean) => void;
+    size?: ModalSize;
   } = {}
 ): {
   isVisible: boolean;
@@ -41,8 +44,13 @@ export const useModal = (
   const ModalContent: FC<ModalProps> = modalContent;
 
   const modal = (
-    <Modal isVisible={isVisible} setVisibility={setModalVisibility} portalParent={portalParent}>
-      <ModalContent isVisible={isVisible} setVisibility={setModalVisibility} />
+    <Modal
+      isVisible={isVisible}
+      size={size}
+      setVisibility={setModalVisibility}
+      portalParent={portalParent}
+    >
+      <ModalContent isVisible={isVisible} setVisibility={setModalVisibility} size={size} />
     </Modal>
   );
 

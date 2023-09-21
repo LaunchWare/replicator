@@ -11,7 +11,7 @@
     "dist",
     "README.md",
     "dist/**",
-    "css/**"
+    "dist/css/**"
   ],
   "resolutions": {
     "jackspeak": "2.1.1"
@@ -59,7 +59,7 @@
     "postcss": "^8.4.6",
     "postcss-import": "^14.0.2",
     "postcss-loader": "^6.2.1",
-    "postcss-nesting": "^10.1.2",
+    "postcss-nesting": "^12.0.1",
     "prettier": "^2.5.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -78,7 +78,11 @@
   "peerDependencies": {
     "react": ">= 17",
     "react-dom": ">= 17",
-    "react-router": "^6.2"
+    "react-router": "^6.2",
+    "postcss": "^8.4.6",
+    "postcss-import": "^14.0.2",
+    "postcss-loader": "^6.2.1",
+    "postcss-nesting": "^12.0.1"
   },
   "scripts": {
     "build": "yarn run rollup -c",
