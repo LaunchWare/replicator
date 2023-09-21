@@ -1,41 +1,42 @@
-import React, { FC } from "react";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { FC } from "react";
+
 import { createPortal } from "react-dom";
+
 import { ModalProps } from "./Modal.d";
 
 export type Modal = FC<ModalProps>;
 
-export const Modal: Modal = ({
+export function Modal({
   isVisible,
   setVisibility,
   children,
   portalParent = document.body,
-}) => {
-  return (
-    <>
-      {isVisible
-        ? createPortal(
-            <div className="modal" onClick={() => setVisibility(false)}>
-              <div className="modal__overlay" />
-              <div className="modal__wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
-                <div className="modal__contents" onClick={(event) => event.stopPropagation()}>
-                  <div className="modal__header">
-                    <button
-                      type="button"
-                      className="modal__close-button"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                      onClick={() => setVisibility(false)}
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  {children}
-                </div>
-              </div>
-            </div>,
-            portalParent
-          )
-        : null}
-    </>
-  );
-};
+}: ModalProps) {
+  if (isVisible) {
+    return createPortal(
+      <div className="modal" onClick={() => setVisibility(false)}>
+        <div className="modal__overlay" />
+        <div className="modal__wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
+          <div className="modal__contents" onClick={(event) => event.stopPropagation()}>
+            <div className="modal__header">
+              <button
+                type="button"
+                className="modal__close-button"
+                data-dismiss="modal"
+                aria-label="Close"
+                onClick={() => setVisibility(false)}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {children}
+          </div>
+        </div>
+      </div>,
+      portalParent
+    );
+  }
+  return null;
+}

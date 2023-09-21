@@ -1,14 +1,15 @@
-import React, { FC } from "react";
-import { ConfirmationModalProps } from "../ConfirmationModal.d";
-import { ConfirmationModal } from "../ConfirmationModal";
+import { FC } from "react";
+
 import { useModal } from "../../Modal";
 import { ModalProps } from "../../Modal/Modal.d";
+import { ConfirmationModal } from "../ConfirmationModal";
+import { ConfirmationModalProps } from "../ConfirmationModal.d";
 
 export const useConfirmationModal = ({
   promptText = "Are you sure?",
   action,
 }: ConfirmationModalProps) => {
-  const modalContents: FC<ModalProps> = ({ isVisible, setVisibility }: ModalProps) => (
+  const modalContents: FC<ModalProps> = ({ setVisibility }: ModalProps) => (
     <ConfirmationModal
       action={() => {
         action();
@@ -18,7 +19,7 @@ export const useConfirmationModal = ({
       setVisibility={setVisibility}
     />
   );
-  const { setVisibility, isVisible, modal } = useModal(modalContents, { scrollToTop: false });
+  const { setVisibility, modal } = useModal(modalContents, { scrollToTop: false });
   const showModal = () => {
     setVisibility(true);
   };

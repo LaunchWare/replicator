@@ -1,14 +1,12 @@
-import React from "react";
-import { useConfirmationModal } from "./hooks/useConfirmationModal";
-import "./css/confirmationModal.css";
 import mdx from "./ConfirmationModal.mdx";
+import { useConfirmationModal } from "./hooks/useConfirmationModal";
 
-export const DefaultConfirmationModal = () => {
+import "./css/confirmationModal.css";
+
+export function DefaultConfirmationModal() {
   const { showModal, modal } = useConfirmationModal({
     promptText: "You sure?",
-    action: () => {
-      console.log("confirmed");
-    },
+    action: () => {},
   });
   return (
     <>
@@ -18,7 +16,7 @@ export const DefaultConfirmationModal = () => {
       {modal}
     </>
   );
-};
+}
 
 DefaultConfirmationModal.storyName = "Default";
 

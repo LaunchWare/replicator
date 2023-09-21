@@ -1,9 +1,8 @@
-import React, { FC, useState } from "react";
-import { ReactElement } from "react";
-import { ModalProps } from "../Modal.d";
-import { Modal } from "../Modal";
+import { FC, useState, ReactElement } from "react";
 
 import { useKeypress } from "../../Keypress/hooks/useKeypress";
+import { Modal } from "../Modal";
+import { ModalProps } from "../Modal.d";
 
 export const useModal = (
   modalContent: FC<ModalProps>,

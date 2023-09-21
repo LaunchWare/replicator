@@ -1,11 +1,6 @@
-import React from "react";
 import { ConfirmationModalProps } from "./ConfirmationModal.d";
 
-export const ConfirmationModal = ({
-  action,
-  promptText,
-  setVisibility,
-}: ConfirmationModalProps) => {
+export function ConfirmationModal({ action, promptText, setVisibility }: ConfirmationModalProps) {
   return (
     <div className="confirmation-modal">
       <p className="confirmation-modal__text">{promptText}</p>
@@ -27,6 +22,6 @@ export const ConfirmationModal = ({
       </div>
     </div>
   );
-};
+}
 
 export default ConfirmationModal;

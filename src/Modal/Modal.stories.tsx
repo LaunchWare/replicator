@@ -1,14 +1,15 @@
-import React, { FC, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Link, useParams } from "react-router-dom";
-import { useModal } from "../Modal";
-import mdx from "./Modal.mdx";
 
-import "./css/modal.css";
+import { useModal } from ".";
+import mdx from "./Modal.mdx";
 import { useRoutedModal } from "./hooks/useRoutedModal";
 
-export const DefaultModal = () => {
-  const { modal, isVisible, setVisibility } = useModal(() => <p>I'm in a modal</p>);
+import "./css/modal.css";
+
+export function DefaultModal() {
+  const { modal, setVisibility } = useModal(() => <p>I am in a modal</p>);
   return (
     <>
       <button type="button" onClick={() => setVisibility(true)}>
@@ -17,43 +18,44 @@ export const DefaultModal = () => {
       {modal}
     </>
   );
-};
+}
 
 DefaultModal.storyName = "Default";
 
-export const RoutedModal = () => {
-  const names = ["Engage", "Replicator"];
-  const EditModal: FC = () => {
-    const { appName } = useParams();
-    return <h1>Edit {appName}</h1>;
-  };
-  const NameListItems: FC = () => {
-    const { modal } = useRoutedModal(EditModal, { path: "/apps/:appName/edit" });
-    const { pathname } = useLocation();
-    const nameListItems = names.map((name) => (
-      <p key={name}>
-        {name} <Link to={`/apps/${name}/edit`}>Edit</Link>
-      </p>
-    ));
+function EditModal() {
+  const { appName } = useParams();
+  return <h1>Edit {appName}</h1>;
+}
 
-    return (
-      <>
-        {nameListItems}
-        <p>Current Path: {pathname}</p>
-        {modal}
-      </>
-    );
-  };
+function NameListItems({ names }: { names: string[] }) {
+  const { modal } = useRoutedModal(EditModal, { path: "/apps/:appName/edit" });
+  const { pathname } = useLocation();
+  const nameListItems = names.map((name) => (
+    <p key={name}>
+      {name} <Link to={`/apps/${name}/edit`}>Edit</Link>
+    </p>
+  ));
+
+  return (
+    <>
+      {nameListItems}
+      <p>Current Path: {pathname}</p>
+      {modal}
+    </>
+  );
+}
+export function RoutedModal() {
+  const names = ["Engage", "Replicator"];
 
   return (
     <Routes>
-      <Route index element={<NameListItems />} />
-      <Route path="/apps" element={<NameListItems />}>
-        <Route path=":appName/edit" element={<NameListItems />} />
+      <Route index element={<NameListItems names={names} />} />
+      <Route path="/apps" element={<NameListItems names={names} />}>
+        <Route path=":appName/edit" element={<NameListItems names={names} />} />
       </Route>
     </Routes>
   );
-};
+}
 
 RoutedModal.storyName = "Routed Modal";
 
