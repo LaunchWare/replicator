@@ -12,10 +12,14 @@ export function Modal({
   isVisible,
   setVisibility,
   children,
-  portalParent = document.body,
+  portalParent,
   size = "large",
 }: ModalProps) {
-  if (isVisible) {
+  let actualPortalParent = portalParent;
+  if (!portalParent && !!document) {
+    actualPortalParent = document.body;
+  }
+  if (isVisible && actualPortalParent) {
     return createPortal(
       <div className="modal" onClick={() => setVisibility(false)}>
         <div className="modal__overlay" />
@@ -39,7 +43,7 @@ export function Modal({
           </div>
         </div>
       </div>,
-      portalParent
+      actualPortalParent
     );
   }
   return null;

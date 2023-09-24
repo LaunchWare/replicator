@@ -9,7 +9,7 @@ export const useModal = (
   modalContent: FC<ModalProps>,
   {
     scrollToTop = true,
-    portalParent = document.body,
+    portalParent,
     onVisibilityChange = () => {},
     size = "large",
   }: {
