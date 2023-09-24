@@ -16,7 +16,7 @@ export function Modal({
   size = "large",
 }: ModalProps) {
   let actualPortalParent = portalParent;
-  if (!portalParent && !!document) {
+  if (!portalParent && typeof document !== "undefined") {
     actualPortalParent = document.body;
   }
   if (isVisible && actualPortalParent) {
