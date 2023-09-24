@@ -1,6 +1,6 @@
 {
   "name": "@launchware/replicator",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "React components commonly used by Launch Academy developers",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
